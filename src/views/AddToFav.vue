@@ -42,9 +42,12 @@ export default {
         movieList: {
             deep: true,
             handler() {
-                this.favList = this.movieList?.titles?.filter((movie) => this.$cookies.get("favlist").includes(movie.jawSummary?.title));
-                this.loading = false
+                if (this.movieList.titles?.length > 0) {
+                    this.favList = this.movieList?.titles?.filter((movie) => this.$cookies.get("favlist").includes(movie.jawSummary?.title));
+                    this.loading = false
+                }
             },
+            immediate: true
         }
     }
 }
