@@ -6,17 +6,10 @@
         <button @click="viewAllhandlePage">View All</button>
       </div>
     </div>
-    <swiper
-      :slidesPerView="8"
-      :spaceBetween="20"
-      :navigation="true"
-      :modules="modules"
-      class="mySwiper"
-      :loop="true"
-      :lazy="true"
-    >
-      <swiper-slide v-for="movie in list?.slice(0, 20)" :key="movie.id">
-        <CardVue :movie="movie" class="height"/>
+    <swiper v-if="list?.length > 0" :slidesPerView="8" :spaceBetween="20" :navigation="true" :modules="modules"
+      class="mySwiper" :loop="true" :lazy="true">
+      <swiper-slide v-for="(movie) in list?.slice(0, 20)" :key="movie?.jawSummary?.title">
+        <CardVue :movie="movie" class="height" />
       </swiper-slide>
     </swiper>
   </div>
@@ -58,21 +51,24 @@ export default {
 };
 </script>
 <style scoped>
-.height{
+.height {
   height: 250px;
 }
+
 .title {
   color: white;
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 20px;
 }
+
 .swiperWrapper {
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
   margin-top: 40px;
 }
+
 .ActivemovieVideo {
   position: absolute;
   top: -30px;
@@ -85,6 +81,7 @@ export default {
 .movieWrapper:hover {
   transform: scale(1.05);
 }
+
 .movieWrapper:hover .ActivemovieVideo {
   display: block;
 }
@@ -106,6 +103,7 @@ export default {
   font-size: 18px;
   cursor: pointer;
 }
+
 .movieWrapper {
   color: black;
   background-color: white;
@@ -115,18 +113,22 @@ export default {
   height: 220px;
   position: relative;
 }
+
 .player {
   height: 100% !important;
 }
+
 .movieWrapper img {
   object-fit: cover;
   height: 100% !important;
 }
+
 .movieWrapper:hover .movieDetails {
   background-color: rgba(0, 0, 0, 0.6);
   top: 0;
   transition: all ease-in-out 0.3s;
 }
+
 .movieWrapper .movieDetails {
   position: absolute;
   color: whitesmoke;
@@ -139,28 +141,30 @@ export default {
   flex-direction: column;
   background-color: transparent;
 }
+
 .movieDetails .name {
   font-size: 18px;
   font-weight: 600;
   margin-top: 30px;
   padding-left: 10px;
 }
+
 .description {
   font-size: 15px;
   margin-top: 20px;
   padding-left: 10px;
 }
+
 .btns {
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 13px 10px;
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.5),
-    rgba(255, 255, 255, 0.6)
-  );
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5),
+      rgba(255, 255, 255, 0.6));
 }
+
 .btns .play-btn {
   background: #a00;
   color: whitesmoke;
@@ -170,6 +174,7 @@ export default {
   cursor: pointer;
   margin-top: auto;
 }
+
 .play-btn:hover {
   background-image: linear-gradient(#a00, rgba(0, 0, 0, 0.8));
 }
@@ -178,6 +183,7 @@ export default {
   font-size: 35px;
   border-radius: 50%;
 }
+
 .btns span:hover {
   background: -webkit-linear-gradient(white, rgb(255, 0, 0));
   -webkit-background-clip: text;

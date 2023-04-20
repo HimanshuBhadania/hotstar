@@ -5,21 +5,7 @@ import TvPage from "../views/TvPage.vue";
 import MovieList from "../views/MovieList.vue";
 import PlayVideo from "../views/PlayVideo.vue";
 import LoginPage from "@/views/LoginPage.vue";
-// const HomePage = defineAsyncComponent(() =>
-//   import("../views/HomePage.vue")
-// );
-// const TvPage = defineAsyncComponent(() =>
-//   import("../views/TvPage.vue")
-// );
-// const MovieList = defineAsyncComponent(() =>
-//   import("../views/MovieList.vue")
-// );
-// const PlayVideo = defineAsyncComponent(() =>
-//   import("../views/PlayVideo.vue")
-// );
-// const LoginPage = defineAsyncComponent(() =>
-//   import("@/views/LoginPage.vue")
-// );
+import AddToFav from "@/views/AddToFav.vue"
 const routes = [
   {
     path: "/",
@@ -45,6 +31,11 @@ const routes = [
     path: "/login",
     name: "login",
     component: LoginPage,
+  },
+  {
+    path: "/favourite",
+    name: "Favourite",
+    component: AddToFav,
   },
 ];
 

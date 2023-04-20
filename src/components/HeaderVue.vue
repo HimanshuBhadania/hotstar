@@ -6,11 +6,7 @@
           <img src="../assets/logo.png" alt="logo" class="img-fluid" />
         </router-link>
         <ul class="nav-link">
-          <router-link
-            v-for="navLink in navLinks"
-            :key="navLink.id"
-            :to="navLink.path"
-          >
+          <router-link v-for="navLink in navLinks" :key="navLink.id" :to="navLink.path">
             <li>
               {{ navLink.name }}
             </li>
@@ -18,22 +14,13 @@
         </ul>
       </div>
       <div class="right-nav">
-        <input
-          class="search-input"
-          placeholder="Search"
-          type="text"
-          v-model="search"
-        />
+        <input class="search-input" placeholder="Search" type="text" v-model="search" />
         <div>
           <button class="btn sub-btn">SUBCRIBE</button>
           <button v-if="loginORLogout === 'login'" class="btn login-btn">
             LOGIN
           </button>
-          <button
-            v-if="loginORLogout === 'logout'"
-            @click="logoutHandle"
-            class="btn login-btn"
-          >
+          <button v-if="loginORLogout === 'logout'" @click="logoutHandle" class="btn login-btn">
             LOGOUT
           </button>
         </div>
@@ -69,8 +56,8 @@ export default {
         },
         {
           id: 4,
-          name: "Premium",
-          path: "/",
+          name: "Favourite List",
+          path: "/favourite",
         },
       ],
     };
@@ -92,11 +79,11 @@ export default {
       }
     });
   },
-  watch:{
-    search:{
-      deep:true,
-      handler(val){
-        this.$store.dispatch("searchData",val)
+  watch: {
+    search: {
+      deep: true,
+      handler(val) {
+        this.$store.dispatch("searchData", val)
       }
     }
   }
@@ -112,6 +99,7 @@ export default {
   width: 100%;
   z-index: 999;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -119,34 +107,41 @@ export default {
   padding-top: 2px;
   padding-bottom: 2px;
 }
+
 .nav-link {
   display: flex;
   list-style: none;
   gap: 16px;
 }
+
 .nav-link a {
   color: whitesmoke;
   text-decoration: none;
 }
+
 .left-nav {
   display: flex;
   align-items: center;
   gap: 16px;
 }
+
 .img-logo {
   display: block;
   width: 70px;
 }
+
 .right-nav {
   display: flex;
   gap: 16px;
 }
+
 .sub-btn {
   color: whitesmoke;
   background-color: #1f80e0;
   font-weight: 600;
   font-size: 16px;
 }
+
 .login-btn {
   color: whitesmoke;
   font-weight: 600;
@@ -154,6 +149,7 @@ export default {
   cursor: pointer;
   background-color: transparent;
 }
+
 .search-input {
   background-color: transparent;
   border: none;
@@ -165,6 +161,7 @@ export default {
   padding: 4px 8px;
   color: whitesmoke;
 }
+
 .search-input:focus {
   width: 300px;
 }

@@ -1,7 +1,5 @@
 <template>
-  <LoderVue
-    v-if="!kidsMovies || !RecommendedMovies || !ComadyMovies || !ActionMovies"
-  />
+  <LoderVue v-if="!kidsMovies || !RecommendedMovies || !ComadyMovies || !ActionMovies" />
   <template v-else>
     <div class="home_Section">
       <div class="activeMovieImg">
@@ -17,16 +15,9 @@
       </div>
 
       <div class="categories">
-        <div
-          v-for="trendingMovie in trendingMovies"
-          :key="trendingMovie.id"
-          class="category_wrapper"
-          @click="handleBgImg"
-        >
-          <HeroCard
-            :src="trendingMovie.logo"
-            :hoverSrc="trendingMovie.hoverimg"
-          />
+        <div v-for="trendingMovie in trendingMovies" :key="trendingMovie.id" class="category_wrapper"
+          @click="handleBgImg">
+          <HeroCard :src="trendingMovie.logo" :hoverSrc="trendingMovie.hoverimg" />
         </div>
       </div>
     </div>
@@ -97,7 +88,6 @@ export default {
         this.activeHeroSction = this.trendingMovies.find(
           (movie) => movie.hoverimg == val
         );
-        console.log(this.trendingMovies,val)
       },
       immediate: true,
     },
@@ -121,6 +111,7 @@ export default {
   padding: 12px;
   position: relative;
 }
+
 .bgImg img {
   object-fit: cover;
 }
@@ -132,6 +123,7 @@ export default {
   font-size: 72px;
   margin-top: 54px;
 }
+
 .description {
   z-index: 2;
   color: whitesmoke;
@@ -147,12 +139,15 @@ export default {
   height: 100%;
   width: 100%;
 }
+
 .activeMovieImg img {
   height: 100%;
 }
+
 .bgImg {
   height: 100%;
 }
+
 .bgImg:after {
   position: absolute;
   content: "";
@@ -162,6 +157,7 @@ export default {
   left: 0;
   background: linear-gradient(rgba(0, 0, 0, 0), #0c111b);
 }
+
 .categories {
   z-index: 2;
   display: flex;
@@ -171,11 +167,13 @@ export default {
   gap: 12px;
   padding-bottom: 16px;
 }
+
 .movieDetails {
   flex: 1;
   display: flex;
   flex-direction: column;
 }
+
 .category_wrapper {
   background-color: whitesmoke;
   flex: 1;
@@ -197,15 +195,18 @@ export default {
   margin-bottom: 80px;
   transition: all ease-in 0.25s;
 }
+
 .play-btn:hover {
   background-image: linear-gradient(#a00, rgba(0, 0, 0, 0.8));
 }
+
 .category_wrapper img {
   height: 100%;
   cursor: pointer;
   object-fit: cover;
   object-position: center;
 }
+
 .recommended {
   position: relative;
 }
